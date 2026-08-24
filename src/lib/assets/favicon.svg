@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+	<title>Lexora AI</title>
+	<rect width="64" height="64" rx="14" fill="#211c14" />
+	<path d="M18 46V16h7v24h14v6H18Z" fill="#fdfbf6" />
+	<path d="M42.5 46 51 16h-7.2l-4.5 18.6L34.8 16h-7.4l8.7 30h6.4Z" fill="#dd8a4f" />
+	<circle cx="47.5" cy="46" r="3.5" fill="#6b9470" />
+</svg>
