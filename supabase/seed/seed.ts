@@ -4,7 +4,7 @@
 
 import 'dotenv/config';
 import { createClient } from '@supabase/supabase-js';
-import type { Database, Mistake, PracticeQuestion, Submission } from '../../src/lib/types/db';
+import type { Database, Mistake, PracticeQuestion, Submission } from '../../lib/types/db';
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SUPABASE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_ANON_KEY;

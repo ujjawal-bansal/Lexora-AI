@@ -1,0 +1,165 @@
+.page {
+	flex: 1;
+	width: 100%;
+	max-width: var(--max-width);
+	margin: 0 auto;
+	padding: clamp(2rem, 5vw, 3.5rem) 1.5rem 5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+}
+
+.backLink {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3rem;
+	text-decoration: none;
+	font-size: 0.85rem;
+	color: var(--ink-500);
+	transition: color 0.14s ease;
+	align-self: flex-start;
+	margin-bottom: -0.5rem;
+}
+
+.backLink:hover {
+	color: var(--accent-600);
+}
+
+.masthead {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.eyebrow {
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--accent-600);
+}
+
+.masthead h1 {
+	font-size: clamp(1.85rem, 4.5vw, 2.5rem);
+}
+
+.subtitle {
+	font-size: 0.9rem;
+	color: var(--ink-500);
+}
+
+.sectionDivider {
+	border: none;
+	border-top: 1.5px dashed var(--paper-300);
+	margin: 0;
+}
+
+.groupSection {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.groupHeader {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+}
+
+.groupDot {
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	flex-shrink: 0;
+}
+
+.groupDot.grammar {
+	background: var(--accent-500);
+}
+
+.groupDot.structure {
+	background: var(--ink-500);
+}
+
+.groupLabel {
+	font-family: var(--font-sans);
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	margin: 0;
+}
+
+.categoryBlock {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8rem;
+}
+
+.categoryName {
+	font-size: 0.92rem;
+	font-weight: 600;
+	color: var(--ink-700);
+	font-family: var(--font-sans);
+	margin: 0;
+}
+
+.questionStack {
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
+}
+
+/* ─── Empty state ─── */
+
+.emptyState {
+	text-align: center;
+	padding: 3.5rem 2rem;
+	background: var(--paper-50);
+	border: 1px solid var(--paper-300);
+	border-radius: var(--radius-lg);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.6rem;
+}
+
+.emptyIcon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	background: var(--accent-200);
+	color: var(--accent-700);
+	font-size: 1.3rem;
+	margin-bottom: 0.5rem;
+}
+
+.emptyState h2 {
+	font-size: 1.4rem;
+}
+
+.emptyState p {
+	color: var(--ink-600);
+	max-width: 40ch;
+	font-size: 0.95rem;
+}
+
+.emptyCta {
+	display: inline-block;
+	text-decoration: none;
+	background: var(--ink-900);
+	color: var(--paper-50);
+	padding: 0.65rem 1.4rem;
+	border-radius: var(--radius-md);
+	font-weight: 600;
+	font-size: 0.9rem;
+	margin-top: 0.5rem;
+	transition: background-color 0.15s;
+}
+
+.emptyCta:hover {
+	background: var(--accent-700);
+}

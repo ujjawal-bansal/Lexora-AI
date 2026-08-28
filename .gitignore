@@ -1,12 +1,12 @@
 node_modules
 
 # Output
+.next
 .output
+/out
 .vercel
 .netlify
 .wrangler
-/.svelte-kit
-/build
 
 # OS
 .DS_Store
@@ -21,9 +21,9 @@ Thumbs.db
 # Project notes (not for public repo)
 SPEC.md
 
-# Vite
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
 
 # Supabase CLI temp files
 supabase/.temp

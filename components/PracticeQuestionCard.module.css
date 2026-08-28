@@ -1,0 +1,268 @@
+.card {
+	background: var(--paper-50);
+	border: 1px solid var(--paper-300);
+	border-radius: var(--radius-md);
+	padding: 1.35rem 1.4rem;
+	box-shadow: var(--shadow-sm);
+	transition: border-color 0.18s ease;
+}
+
+.card.isAnswered.isCorrect {
+	border-color: var(--good-200);
+	background: color-mix(in srgb, var(--good-100) 40%, var(--paper-50));
+}
+
+.card.isAnswered.isIncorrect {
+	border-color: var(--bad-200);
+	background: color-mix(in srgb, var(--bad-100) 30%, var(--paper-50));
+}
+
+/* ─── Header ─── */
+
+.cardHeader {
+	display: flex;
+	gap: 0.9rem;
+	align-items: flex-start;
+	margin-bottom: 1.15rem;
+}
+
+.qIndex {
+	flex-shrink: 0;
+	width: 26px;
+	height: 26px;
+	border-radius: 50%;
+	background: var(--paper-200);
+	color: var(--ink-600);
+	font-size: 0.78rem;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-top: 0.2rem;
+	font-family: var(--font-sans);
+	transition: background-color 0.18s, color 0.18s;
+}
+
+.isAnswered .qIndex {
+	background: var(--accent-200);
+	color: var(--accent-700);
+}
+
+.qPrompt {
+	font-family: var(--font-serif);
+	font-size: 1.05rem;
+	line-height: 1.55;
+	color: var(--ink-800);
+}
+
+/* ─── Choices ─── */
+
+.choices {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+.choiceLabel {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.65rem;
+	padding: 0.6rem 0.9rem;
+	border: 1px solid var(--paper-300);
+	border-radius: var(--radius-sm);
+	font-size: 0.93rem;
+	line-height: 1.45;
+	cursor: pointer;
+	transition: border-color 0.14s, background 0.14s;
+}
+
+.choiceLabel:hover {
+	border-color: var(--accent-300);
+	background: var(--accent-100);
+}
+
+.choiceLabelSelected {
+	border-color: var(--accent-500);
+	background: var(--accent-100);
+}
+
+.choiceLabel input[type='radio'] {
+	margin-top: 0.12rem;
+	flex-shrink: 0;
+	accent-color: var(--accent-600);
+}
+
+/* Result-mode choices */
+.choicesResult .choice {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.65rem;
+	padding: 0.6rem 0.9rem;
+	border: 1px solid var(--paper-300);
+	border-radius: var(--radius-sm);
+	font-size: 0.93rem;
+	color: var(--ink-600);
+}
+
+.choicesResult .choiceCorrect {
+	border-color: var(--good-500);
+	background: var(--good-100);
+	color: var(--good-700);
+	font-weight: 500;
+}
+
+.choicesResult .choiceWrong {
+	border-color: var(--bad-400);
+	background: var(--bad-100);
+	color: var(--bad-700);
+	text-decoration: line-through;
+	opacity: 0.85;
+}
+
+.choiceGlyph {
+	flex-shrink: 0;
+	width: 16px;
+	font-size: 0.82rem;
+	font-weight: 700;
+	margin-top: 0.08rem;
+}
+
+/* ─── Textarea ─── */
+
+.card textarea {
+	display: block;
+	width: 100%;
+	border: 1px solid var(--paper-300);
+	border-radius: var(--radius-sm);
+	padding: 0.8rem 1rem;
+	font-family: var(--font-sans);
+	font-size: 0.94rem;
+	line-height: 1.6;
+	color: var(--ink-800);
+	background: var(--paper-100);
+	resize: vertical;
+	margin-bottom: 0.85rem;
+	transition: border-color 0.14s, background 0.14s;
+	caret-color: var(--accent-600);
+}
+
+.card textarea:focus {
+	outline: none;
+	border-color: var(--accent-400);
+	background: var(--paper-50);
+	box-shadow: 0 0 0 3px var(--accent-100);
+}
+
+.card textarea::placeholder {
+	color: var(--ink-400);
+}
+
+.card textarea:disabled {
+	opacity: 0.6;
+}
+
+/* ─── Submit button ─── */
+
+.submitBtn {
+	appearance: none;
+	border: none;
+	background: var(--ink-900);
+	color: var(--paper-50);
+	font-size: 0.88rem;
+	font-weight: 600;
+	padding: 0.6rem 1.2rem;
+	border-radius: var(--radius-sm);
+	cursor: pointer;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	transition: background-color 0.15s, transform 0.1s;
+}
+
+.submitBtn:hover:not(:disabled) {
+	background: var(--accent-700);
+}
+
+.submitBtn:active:not(:disabled) {
+	transform: scale(0.98);
+}
+
+.submitBtn:disabled {
+	background: var(--paper-300);
+	color: var(--ink-400);
+	cursor: not-allowed;
+}
+
+.btnSpinner {
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	border: 2px solid rgba(253, 251, 246, 0.35);
+	border-top-color: var(--paper-50);
+	animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+/* ─── Submitted answer display ─── */
+
+.submittedAnswer {
+	background: var(--paper-100);
+	border: 1px solid var(--paper-300);
+	border-radius: var(--radius-sm);
+	padding: 0.8rem 1rem;
+	margin-bottom: 0.9rem;
+}
+
+.submittedLabel {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	color: var(--ink-500);
+	margin-bottom: 0.3rem;
+}
+
+.submittedText {
+	font-size: 0.93rem;
+	color: var(--ink-700);
+	line-height: 1.55;
+}
+
+/* ─── Verdict ─── */
+
+.verdict {
+	font-size: 0.9rem;
+	font-weight: 600;
+	display: flex;
+	flex-direction: column;
+	gap: 0.3rem;
+}
+
+.verdictCorrect {
+	color: var(--good-700);
+}
+
+.verdictIncorrect {
+	color: var(--bad-700);
+}
+
+.verdictFeedback {
+	font-weight: 400;
+	color: var(--ink-600);
+	line-height: 1.5;
+}
+
+/* ─── Error ─── */
+
+.errorMsg {
+	margin-top: 0.8rem;
+	font-size: 0.84rem;
+	color: var(--bad-600);
+}

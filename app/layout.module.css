@@ -1,0 +1,46 @@
+.appShell {
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
+}
+
+.pageBody {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.topbar {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 1.5rem;
+	height: 52px;
+	border-bottom: 1px solid var(--paper-300);
+	background: rgba(250, 246, 237, 0.72);
+	backdrop-filter: blur(8px);
+	-webkit-backdrop-filter: blur(8px);
+	position: sticky;
+	top: 0;
+	z-index: 10;
+}
+
+.wordmark {
+	font-family: var(--font-serif);
+	font-size: 1.1rem;
+	font-weight: 600;
+	color: var(--ink-900);
+	text-decoration: none;
+	letter-spacing: -0.015em;
+}
+
+.wordmark em {
+	font-style: italic;
+	color: var(--accent-600);
+}
+
+.tagline {
+	font-size: 0.78rem;
+	color: var(--ink-500);
+	font-style: italic;
+}

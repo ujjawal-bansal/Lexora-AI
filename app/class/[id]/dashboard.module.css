@@ -1,0 +1,261 @@
+.page {
+	flex: 1;
+	width: 100%;
+	max-width: 820px;
+	margin: 0 auto;
+	padding: clamp(2rem, 5vw, 3.5rem) 1.5rem 5rem;
+	display: flex;
+	flex-direction: column;
+	gap: 2.25rem;
+}
+
+.backLink {
+	display: inline-flex;
+	text-decoration: none;
+	font-size: 0.85rem;
+	color: var(--ink-500);
+	align-self: flex-start;
+	margin-bottom: -1rem;
+	transition: color 0.14s ease;
+}
+
+.backLink:hover {
+	color: var(--accent-600);
+}
+
+.masthead {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.eyebrow {
+	font-size: 0.75rem;
+	font-weight: 700;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: var(--accent-600);
+}
+
+.masthead h1 {
+	font-size: clamp(1.85rem, 4.5vw, 2.5rem);
+}
+
+.subtitle {
+	font-size: 0.92rem;
+	color: var(--ink-500);
+}
+
+.sectionTitle {
+	font-family: var(--font-sans);
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--ink-600);
+	margin-bottom: 1rem;
+}
+
+/* ─── Frequency bars ─── */
+
+.freqList {
+	display: flex;
+	flex-direction: column;
+	gap: 0.95rem;
+}
+
+.freqRow {
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+}
+
+.freqLabelRow {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+
+.freqLabel {
+	font-size: 0.92rem;
+	font-weight: 600;
+	color: var(--ink-800);
+}
+
+.freqMeta {
+	font-size: 0.78rem;
+	color: var(--ink-500);
+	white-space: nowrap;
+	font-variant-numeric: tabular-nums;
+}
+
+.freqBarTrack {
+	height: 8px;
+	background: var(--paper-200);
+	border-radius: 99px;
+	overflow: hidden;
+}
+
+.freqBarFill {
+	height: 100%;
+	border-radius: 99px;
+	transition: width 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.freqBarFill.grammar {
+	background: linear-gradient(90deg, var(--accent-400), var(--accent-600));
+}
+
+.freqBarFill.structure {
+	background: linear-gradient(90deg, var(--ink-500), var(--ink-700));
+}
+
+/* ─── Excerpts ─── */
+
+.excerptList {
+	display: flex;
+	flex-direction: column;
+	gap: 0.7rem;
+}
+
+.excerptCard {
+	background: var(--paper-50);
+	border: 1px solid var(--paper-300);
+	border-left: 3px solid var(--accent-400);
+	border-radius: 0 var(--radius-md) var(--radius-md) 0;
+	padding: 0.9rem 1.1rem;
+	box-shadow: var(--shadow-sm);
+}
+
+.excerptHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+
+.excerptCategory {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: var(--accent-600);
+}
+
+.excerptCount {
+	font-size: 0.76rem;
+	color: var(--ink-500);
+	background: var(--paper-200);
+	padding: 0.1em 0.55em;
+	border-radius: 99px;
+}
+
+.excerptQuote {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: 0.98rem;
+	color: var(--ink-800);
+	margin-bottom: 0.35rem;
+	line-height: 1.5;
+}
+
+.excerptExplanation {
+	font-size: 0.86rem;
+	color: var(--ink-600);
+	line-height: 1.5;
+}
+
+/* ─── Students ─── */
+
+.studentList {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.studentRow {
+	display: flex;
+	align-items: center;
+	gap: 0.85rem;
+	text-decoration: none;
+	background: var(--paper-50);
+	border: 1px solid var(--paper-300);
+	border-radius: var(--radius-md);
+	padding: 0.75rem 1rem;
+	transition: border-color 0.14s, box-shadow 0.14s;
+}
+
+.studentRow:hover {
+	border-color: var(--accent-400);
+	box-shadow: var(--shadow-sm);
+}
+
+.studentLabel {
+	font-weight: 600;
+	color: var(--ink-800);
+	font-size: 0.92rem;
+}
+
+.studentStatus {
+	font-size: 0.72rem;
+	font-weight: 700;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	padding: 0.15em 0.55em;
+	border-radius: 99px;
+}
+
+.statusGraded {
+	background: var(--good-100);
+	color: var(--good-700);
+}
+
+.statusPending {
+	background: var(--paper-200);
+	color: var(--ink-500);
+}
+
+.statusFailed {
+	background: var(--bad-100);
+	color: var(--bad-700);
+}
+
+.studentCount {
+	margin-left: auto;
+	font-size: 0.85rem;
+	color: var(--ink-500);
+}
+
+/* ─── Empty state ─── */
+
+.emptyState {
+	text-align: center;
+	padding: 3.5rem 2rem;
+	background: var(--good-100);
+	border: 1px solid var(--good-200);
+	border-radius: var(--radius-lg);
+}
+
+.emptyIcon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	background: var(--good-500);
+	color: white;
+	font-size: 1.4rem;
+	margin-bottom: 1rem;
+}
+
+.emptyState h2 {
+	font-size: 1.3rem;
+	margin-bottom: 0.4rem;
+}
+
+.emptyState p {
+	color: var(--good-700);
+	font-size: 0.92rem;
+}

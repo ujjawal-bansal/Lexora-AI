@@ -1,11 +1,13 @@
-# Lexora AI
+# Lexora AI — Next.js
 
 Student pastes an essay -> Lexora AI flags mistakes with exact quotes -> generates personalized practice questions from those mistakes.
+
+Ported from SvelteKit. The AI pipeline, Zod schemas, Supabase layer and SQL migrations carried over unchanged; the routing and UI layer was rewritten.
 
 ---
 
 ## Stack
-SvelteKit · TypeScript · PostgreSQL (Supabase) · Groq
+Next.js 15 (App Router) · React 19 · TypeScript · PostgreSQL (Supabase) · Groq
 
 ---
 
@@ -18,15 +20,26 @@ essay text
   → persist in one DB transaction
   → results page → practice page
   → [Stage 3] grade short-response answers on demand  (1 Groq call per answer)
+  → [Stage 4] answer free-text questions over aggregated class data
 ```
 
 Grammar categories → MCQ. Structure/argument categories → short written response. This routing is deterministic in application code — the model never decides it.
 
 ---
 
-## Architecture Design
+## How the SvelteKit concepts map
 
-![Architecture](./src/asset/architecture.png)
+| SvelteKit | Here |
+| --- | --- |
+| `+page.server.ts` `load` | `async` Server Component |
+| `export const actions` | Server Actions (`'use server'`) |
+| `use:enhance` | `useActionState` (`isPending` replaces manual submit flags) |
+| `$state` / `$derived` | `useState` / values computed during render |
+| `hooks.server.ts` | `middleware.ts` + `lib/session.ts` |
+| `$env/dynamic/private` | `process.env` (guarded by `server-only`) |
+| `error(404)` | `notFound()` |
+| scoped `<style>` | CSS Modules |
+| `$lib/*` | `@/*` |
 
 ---
 
@@ -42,6 +55,12 @@ Grammar categories → MCQ. Structure/argument categories → short written resp
 
 **Feedback not a grade.** Lexora AI gives formative feedback; final grading remains a human decision both pedagogically and, in some jurisdictions, legally.
 
+**Client components receive narrowed views, never database rows.** Props passed to a client component are serialized into the RSC payload and are readable in page source. `PracticeQuestionView` exists so `model_answer_notes` never crosses the boundary, and an unanswered question does not carry its own answer key.
+
+**Grading reads from the database, not the request.** Both practice actions look the question up by id server-side rather than trusting posted values, so correctness is never a client-supplied claim.
+
+**Session ids are validated, not just present.** The id goes straight into Postgres `uuid` columns, so a malformed cookie is replaced rather than passed through.
+
 ---
 
 ## Problems hit
@@ -50,7 +69,20 @@ Grammar categories → MCQ. Structure/argument categories → short written resp
 - Supabase typed client silently degrades to `never` with `interface` row types — fixed by switching to `type` aliases
 - Stage 1 occasionally returns hallucinated category names — dropped server-side before DB insert, never crash the pipeline
 - Model sometimes paraphrases instead of exact-quoting — logged, not fatal
-- Svelte 5 `$effect` re-ran on every reactive change and overwrote answer state mid-typing — fixed with `untrack()` on the DB fetch
+- A `'use server'` module turns **every** export into a server-action reference, so an exported `const` arrives on the client as a function. Initial form-state objects therefore live in their own modules (`*-state.ts`), not alongside the actions.
+- A cookie set on a middleware *response* is not visible to the same request's Server Components, so the session id is also forwarded on a request header.
+
+---
+
+## Running it
+
+```bash
+npm install
+cp .env.example .env   # fill in GROQ_API_KEY, SUPABASE_URL, SUPABASE_*_KEY
+npm run dev
+```
+
+`npm run check` typechecks. `npm run db:seed` loads development fixtures.
 
 ---
 
