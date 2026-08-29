@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1840" height="1460" viewBox="0 0 1840 1460" font-family="'Chalkboard SE','Comic Sans MS',cursive">
+  <defs>
+    <pattern id="hatch" width="10" height="10" patternTransform="rotate(45)" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="0" y2="10" stroke="#ffffff" stroke-opacity="0.028" stroke-width="4"/>
+    </pattern>
+    <marker id="aPurple" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="none" stroke="#9b7fd4" stroke-width="1.6"/></marker>
+    <marker id="aGreen"  markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="none" stroke="#35a04a" stroke-width="1.6"/></marker>
+    <marker id="aOrange" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="none" stroke="#c77b1e" stroke-width="1.6"/></marker>
+    <marker id="aBlue"   markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto"><path d="M0,0 L9,4.5 L0,9" fill="none" stroke="#3d7ab8" stroke-width="1.6"/></marker>
+  </defs>
+
+  <rect width="1840" height="1460" fill="#0d0d0f"/>
+
+  <!-- columns -->
+  <rect x="72"   y="34" width="338" height="1396" rx="6" fill="none" stroke="#5b6bb0" stroke-width="1.6"/>
+  <rect x="466"  y="34" width="762" height="1396" rx="6" fill="url(#hatch)" stroke="#7c5cbf" stroke-width="1.6"/>
+  <rect x="1258" y="34" width="532" height="1396" rx="6" fill="none" stroke="#2e7d32" stroke-width="1.6"/>
+  <text x="241"  y="88" fill="#a5b4e0" font-size="30" text-anchor="middle">browser</text>
+  <text x="847"  y="88" fill="#c0a8f0" font-size="30" text-anchor="middle">next.js server</text>
+  <text x="1524" y="88" fill="#7bd88f" font-size="30" text-anchor="middle">external services</text>
+
+  <!-- student -->
+  <rect x="104" y="136" width="274" height="92" rx="16" fill="#17395c" stroke="#3d7ab8" stroke-width="2.4"/>
+  <text x="241" y="194" fill="#cfe4ff" font-size="29" text-anchor="middle">student</text>
+
+  <!-- POST -->
+  <line x1="382" y1="182" x2="504" y2="182" stroke="#c77b1e" stroke-width="2.2" marker-end="url(#aOrange)"/>
+  <text x="443" y="174" fill="#e8b877" font-size="22" text-anchor="middle">POST</text>
+
+  <!-- validate -->
+  <rect x="512" y="136" width="312" height="92" rx="16" fill="#40270a" stroke="#c77b1e" stroke-width="2.4"/>
+  <text x="668" y="176" fill="#f0c992" font-size="27" text-anchor="middle">validate</text>
+  <text x="668" y="210" fill="#f0c992" font-size="27" text-anchor="middle">50–5000 words</text>
+
+  <line x1="668" y1="232" x2="668" y2="344" stroke="#9b7fd4" stroke-width="3" marker-end="url(#aPurple)"/>
+  <text x="668" y="294" fill="#c9b6ef" font-size="23" text-anchor="middle">valid</text>
+
+  <!-- stage 1 -->
+  <rect x="508" y="348" width="316" height="130" rx="18" fill="#382b5c" stroke="#9b7fd4" stroke-width="2.4"/>
+  <text x="666" y="392" fill="#ded0f5" font-size="27" text-anchor="middle">stage 1</text>
+  <text x="666" y="426" fill="#ded0f5" font-size="27" text-anchor="middle">grade + extract</text>
+  <text x="666" y="460" fill="#ded0f5" font-size="27" text-anchor="middle">mistakes</text>
+
+  <line x1="828" y1="392" x2="1288" y2="392" stroke="#9b7fd4" stroke-width="2.2" stroke-dasharray="14 10" marker-end="url(#aPurple)"/>
+  <text x="1058" y="382" fill="#c9b6ef" font-size="22" text-anchor="middle">json_object mode</text>
+  <line x1="1288" y1="440" x2="828" y2="440" stroke="#35a04a" stroke-width="2.2" stroke-dasharray="14 10" marker-end="url(#aGreen)"/>
+  <text x="1058" y="430" fill="#7bd88f" font-size="22" text-anchor="middle">→ zod parse</text>
+
+  <!-- groq 1 -->
+  <rect x="1292" y="355" width="430" height="110" rx="16" fill="#0f2f14" stroke="#35a04a" stroke-width="2.4"/>
+  <text x="1507" y="398" fill="#a8e6b0" font-size="27" text-anchor="middle">groq api</text>
+  <text x="1507" y="432" fill="#a8e6b0" font-size="27" text-anchor="middle">openai/gpt-oss-20b</text>
+
+  <line x1="666" y1="482" x2="666" y2="628" stroke="#9b7fd4" stroke-width="3" marker-end="url(#aPurple)"/>
+  <text x="666" y="550" fill="#c9b6ef" font-size="23" text-anchor="middle">mistakes[ ]</text>
+
+  <!-- stage 2 -->
+  <rect x="508" y="632" width="316" height="110" rx="18" fill="#382b5c" stroke="#9b7fd4" stroke-width="2.4"/>
+  <text x="666" y="676" fill="#ded0f5" font-size="27" text-anchor="middle">stage 2</text>
+  <text x="666" y="710" fill="#ded0f5" font-size="27" text-anchor="middle">generate questions</text>
+
+  <line x1="828" y1="666" x2="1288" y2="666" stroke="#9b7fd4" stroke-width="2.2" stroke-dasharray="14 10" marker-end="url(#aPurple)"/>
+  <line x1="1288" y1="712" x2="828" y2="712" stroke="#35a04a" stroke-width="2.2" stroke-dasharray="14 10" marker-end="url(#aGreen)"/>
+
+  <!-- groq 2 -->
+  <rect x="1292" y="640" width="426" height="92" rx="16" fill="#0f2f14" stroke="#35a04a" stroke-width="2.4"/>
+  <text x="1505" y="697" fill="#a8e6b0" font-size="27" text-anchor="middle">groq api  ·  batched call</text>
+
+  <text x="486" y="784" fill="#c9b6ef" font-size="23">grammar → MCQ  ·  structure → short_response</text>
+
+  <line x1="666" y1="800" x2="666" y2="901" stroke="#c77b1e" stroke-width="3.4" marker-end="url(#aOrange)"/>
+
+  <!-- pipeline -->
+  <rect x="508" y="905" width="316" height="93" rx="16" fill="#40270a" stroke="#c77b1e" stroke-width="2.4"/>
+  <text x="666" y="945" fill="#f0c992" font-size="27" text-anchor="middle">pipeline.ts</text>
+  <text x="666" y="979" fill="#f0c992" font-size="27" text-anchor="middle">one transaction</text>
+
+  <line x1="828" y1="951" x2="1288" y2="951" stroke="#35a04a" stroke-width="2.6" marker-end="url(#aGreen)"/>
+
+  <!-- supabase -->
+  <rect x="1292" y="884" width="430" height="136" rx="16" fill="#0f2f14" stroke="#35a04a" stroke-width="2.4"/>
+  <text x="1507" y="928" fill="#a8e6b0" font-size="26" text-anchor="middle">supabase postgres</text>
+  <text x="1507" y="960" fill="#a8e6b0" font-size="26" text-anchor="middle">submissions · mistakes</text>
+  <text x="1507" y="992" fill="#a8e6b0" font-size="26" text-anchor="middle">questions · answers</text>
+
+  <!-- redirect -->
+  <line x1="512" y1="962" x2="300" y2="1084" stroke="#3d7ab8" stroke-width="2.4" marker-end="url(#aBlue)"/>
+  <text x="374" y="1042" fill="#9dc4ec" font-size="22" text-anchor="middle">redirect</text>
+
+  <!-- results -->
+  <rect x="104" y="1088" width="274" height="86" rx="16" fill="#17395c" stroke="#3d7ab8" stroke-width="2.4"/>
+  <text x="241" y="1124" fill="#cfe4ff" font-size="25" text-anchor="middle">results page</text>
+  <text x="241" y="1156" fill="#cfe4ff" font-size="25" text-anchor="middle">/submissions/[id]</text>
+
+  <line x1="241" y1="1178" x2="241" y2="1296" stroke="#3d7ab8" stroke-width="2.6" marker-end="url(#aBlue)"/>
+
+  <!-- practice -->
+  <rect x="104" y="1300" width="274" height="110" rx="16" fill="#17395c" stroke="#3d7ab8" stroke-width="2.4"/>
+  <text x="241" y="1348" fill="#cfe4ff" font-size="25" text-anchor="middle">practice page</text>
+  <text x="241" y="1382" fill="#cfe4ff" font-size="25" text-anchor="middle">/practice</text>
+
+  <line x1="382" y1="1355" x2="504" y2="1355" stroke="#9b7fd4" stroke-width="2.4" marker-end="url(#aPurple)"/>
+  <text x="443" y="1345" fill="#c9b6ef" font-size="22" text-anchor="middle">submit</text>
+
+  <!-- stage 3 -->
+  <rect x="508" y="1298" width="314" height="114" rx="18" fill="#382b5c" stroke="#9b7fd4" stroke-width="2.4"/>
+  <text x="665" y="1338" fill="#ded0f5" font-size="26" text-anchor="middle">stage 3</text>
+  <text x="665" y="1370" fill="#ded0f5" font-size="26" text-anchor="middle">grade answer (on</text>
+  <text x="665" y="1400" fill="#ded0f5" font-size="26" text-anchor="middle">demand)</text>
+
+  <line x1="826" y1="1330" x2="1288" y2="1330" stroke="#9b7fd4" stroke-width="2.2" stroke-dasharray="14 10" marker-end="url(#aPurple)"/>
+  <line x1="1288" y1="1382" x2="826" y2="1382" stroke="#35a04a" stroke-width="2.2" stroke-dasharray="14 10" marker-end="url(#aGreen)"/>
+
+  <!-- groq 3 -->
+  <rect x="1292" y="1300" width="426" height="110" rx="16" fill="#0f2f14" stroke="#35a04a" stroke-width="2.4"/>
+  <text x="1505" y="1343" fill="#a8e6b0" font-size="26" text-anchor="middle">groq api  ·  pass/fail +</text>
+  <text x="1505" y="1377" fill="#a8e6b0" font-size="26" text-anchor="middle">reason</text>
+</svg>
