@@ -1,8 +1,9 @@
-# Lexora AI — Next.js
+# Lexora AI
+
+**Live:** https://lexora--ai.vercel.app
 
 Student pastes an essay -> Lexora AI flags mistakes with exact quotes -> generates personalized practice questions from those mistakes.
-
-Ported from SvelteKit. The AI pipeline, Zod schemas, Supabase layer and SQL migrations carried over unchanged; the routing and UI layer was rewritten.
+Teachers can batch-submit a whole class and query the aggregated mistake patterns in plain English.
 
 ---
 
@@ -27,19 +28,9 @@ Grammar categories → MCQ. Structure/argument categories → short written resp
 
 ---
 
-## How the SvelteKit concepts map
+## Architecture Design
 
-| SvelteKit | Here |
-| --- | --- |
-| `+page.server.ts` `load` | `async` Server Component |
-| `export const actions` | Server Actions (`'use server'`) |
-| `use:enhance` | `useActionState` (`isPending` replaces manual submit flags) |
-| `$state` / `$derived` | `useState` / values computed during render |
-| `hooks.server.ts` | `middleware.ts` + `lib/session.ts` |
-| `$env/dynamic/private` | `process.env` (guarded by `server-only`) |
-| `error(404)` | `notFound()` |
-| scoped `<style>` | CSS Modules |
-| `$lib/*` | `@/*` |
+![Architecture](./public/asset/architecture.png)
 
 ---
 
@@ -71,18 +62,6 @@ Grammar categories → MCQ. Structure/argument categories → short written resp
 - Model sometimes paraphrases instead of exact-quoting — logged, not fatal
 - A `'use server'` module turns **every** export into a server-action reference, so an exported `const` arrives on the client as a function. Initial form-state objects therefore live in their own modules (`*-state.ts`), not alongside the actions.
 - A cookie set on a middleware *response* is not visible to the same request's Server Components, so the session id is also forwarded on a request header.
-
----
-
-## Running it
-
-```bash
-npm install
-cp .env.example .env   # fill in GROQ_API_KEY, SUPABASE_URL, SUPABASE_*_KEY
-npm run dev
-```
-
-`npm run check` typechecks. `npm run db:seed` loads development fixtures.
 
 ---
 
