@@ -30,7 +30,7 @@ Grammar categories → MCQ. Structure/argument categories → short written resp
 
 ## Architecture Design
 
-![Architecture](./public/asset/architecture.png)
+![Architecture](./public/asset/architecture.svg)
 
 ---
 
